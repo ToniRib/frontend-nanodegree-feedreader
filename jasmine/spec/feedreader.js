@@ -14,12 +14,9 @@ $(function() {
     * feeds definitions, the allFeeds variable in our application.
     */
     describe('RSS Feeds', function() {
-        /* This is our first test - it tests to make sure that the
+        /* First test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
-         * empty. Experiment with this before you get started on
-         * the rest of this project. What happens when you change
-         * allFeeds in app.js to be an empty array and refresh the
-         * page?
+         * empty.
          */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
@@ -27,20 +24,38 @@ $(function() {
         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
+        /* Second test - it tests to make sure that each feed
+         * in the allFeeds object has a URL defined
          * and that the URL is not empty.
          */
+         it('each feed has a URL defined', function() {
+            allFeeds.forEach(function(feed) {
+                expect(feed.url).toBeDefined();
+                expect(feed.url).not.toBe('');
+            });
+         });
 
 
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
+        /* Third test - it tests to make sure that each feed
+         * in the allFeeds object has a name defined
          * and that the name is not empty.
          */
+         it('each feed has a name defined', function() {
+            allFeeds.forEach(function(feed) {
+                expect(feed.name).toBeDefined();
+                expect(feed.name).not.toBe('');
+            });
+         });
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
+    /* This is our second test suite - a test suite just contains
+    * a related set of tests. This suite is all about the menu
+    * definitions.
+    */
+    describe('The menu', function() {
+
+    });
 
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
