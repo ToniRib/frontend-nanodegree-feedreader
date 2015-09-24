@@ -48,7 +48,6 @@ $(function() {
          });
     });
 
-
     /* This is our second test suite - a test suite just contains
     * a related set of tests. This suite is all about the menu
     * definitions.
@@ -61,7 +60,7 @@ $(function() {
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
-        /* Fifth test - it tests to ensures the menu changes
+        /* Fifth test - it tests to ensure the menu changes
          * visibility when the menu icon is clicked. This test
          * ensure both that the menu is visible when clicked once
          * and is not visible when clicked a second time.
@@ -74,14 +73,28 @@ $(function() {
         });
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
-
-        /* TODO: Write a test that ensures when the loadFeed
+    /* This is our third test suite - a test suite just contains
+    * a related set of tests. This suite is all about testing the
+    * loading of the initial feed.
+    */
+    describe('Initial Entries', function() {
+        /* Sixth test - it tests to ensure when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test wil require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        beforeEach(function(done) {
+            init(function() {
+                done(); // wait for it to finish
+            });
+        });
+
+        it('has at least one entry in the feed container', function() {
+            expect($('.feed').children().length).toBeGreaterThan(0);
+            done();
+        });
+    });
+
+
 
     /* TODO: Write a new test suite named "New Feed Selection"
 
