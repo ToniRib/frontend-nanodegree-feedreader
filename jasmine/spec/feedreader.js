@@ -83,12 +83,12 @@ $(function() {
          * a single .entry element within the .feed container.
          */
         beforeEach(function(done) {
-            init(function() {
-                done(); // wait for it to finish
+            loadFeed(0, function() {
+                done();
             });
         });
 
-        it('has at least one entry in the feed container', function() {
+        it('has at least one entry in the feed container', function(done) {
             expect($('.feed').children().length).toBeGreaterThan(0);
             done();
         });
