@@ -28,24 +28,24 @@ $(function() {
          * in the allFeeds object has a URL defined
          * and that the URL is not empty.
          */
-         it('each feed has a URL defined', function() {
+        it('each feed has a URL defined', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url).not.toBe('');
             });
-         });
+        });
 
 
         /* Third test - it tests to make sure that each feed
          * in the allFeeds object has a name defined
          * and that the name is not empty.
          */
-         it('each feed has a name defined', function() {
+        it('each feed has a name defined', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name).not.toBe('');
             });
-         });
+        });
     });
 
     /* This is our second test suite - a test suite just contains
@@ -84,7 +84,7 @@ $(function() {
          */
         beforeEach(function(done) {
             loadFeed(0, function() {
-                done();
+                done(); // wait for the function to finish
             });
         });
 
@@ -94,12 +94,31 @@ $(function() {
         });
     });
 
-
-
-    /* TODO: Write a new test suite named "New Feed Selection"
-
+    /* This is our fourth test suite - a test suite just contains
+    * a related set of tests. This suite is all about testing the
+    * selection of a new feed.
+    */
+    describe('New Feed Selection', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        var initialContent,
+            newContent;
+
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                initialContent = $('.feed').html();
+                done();
+            });
+        });
+
+        it('changes content when a new feed is selected', function(done) {
+            loadFeed(1, function() {
+                newContent = $('.feed').html()
+                done();
+            });
+            expect(newContent).not.toBe(initialContent);
+        });
+    });
 }());
