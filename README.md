@@ -3,7 +3,7 @@
 In this project, Udacity provided a web-based application that reads RSS feeds. The project was to use [Jasmine](https://github.com/jasmine/jasmine), a JavaScript test suite maintained by Pivotal Labs, to write tests for the basic functionality of the app.
 
 ## Included Tests
-Test include the following:
+Tests include the following (as part of the feedreader.js file):
 - RSS Feeds
 	- are defined
 	- each feed has a URL defined
